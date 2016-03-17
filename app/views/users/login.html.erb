@@ -1,6 +1,10 @@
 <div class="col-md-8">
   <h2>Log in</h2>
+
+  <%= flash_messages %>
+
   <form method="post" action="<%= login_path %>">
+    <%= token_tag %>
     <div class="form-group">
       <label for="email">Email address</label>
       <input type="email" class="form-control" id="email" name="email" placeholder="john@example.com"/>
