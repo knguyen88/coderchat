@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+  skip_before_action :require_login
+  before_action :skip_login, only: [:show_login_form, :show_register_form]
+
   def show_login_form
     render 'users/login'
   end
@@ -28,13 +31,17 @@ class UsersController < ApplicationController
     render 'users/register'
   end
 
+  def do_logout
+    reset_session
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 
   def store_id_and_redirect_to_home(user)
-    session[:user_id] = @user.id
-    redirect_to root_path
+    session[:user_id] = user.id
+    redirect_to messages_path
   end
 end
