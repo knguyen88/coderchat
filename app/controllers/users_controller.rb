@@ -33,6 +33,7 @@ class UsersController < ApplicationController
 
   def do_logout
     reset_session
+    redirect_to login_path
   end
 
   private
