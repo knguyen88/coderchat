@@ -4,7 +4,7 @@
 
 Submitted by: **Kha Nguyen**
 
-Time spent: **2** hours
+Time spent: **3.5** hours
 
 URL: **https://quiet-bayou-36779.herokuapp.com**
 
@@ -25,7 +25,7 @@ The following **required** functionality is complete:
 
 The following **optional** functionality is complete:
 
-* [8] User can attach an image.
+* [ ] User can attach an image.
 * [8] User can have multiple recipients on one message.
 * [ ] User can log in with Facebook.
 * [7] User A can "block" User B. If User A blocks User B, they will not see messages from User B. User B will not know they have been blocked.
