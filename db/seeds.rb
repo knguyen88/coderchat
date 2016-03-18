@@ -16,5 +16,10 @@ user3 = User.find_by_email('user3@test.test')
 
 Friendship.create(my_id: user1.id,
                   friend_id: user2.id)
+Friendship.create(my_id: user2.id,
+                  friend_id: user1.id)
+
 Friendship.create(my_id: user1.id,
                   friend_id: user3.id)
+Friendship.create(my_id: user3.id,
+                  friend_id: user1.id)

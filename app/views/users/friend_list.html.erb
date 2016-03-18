@@ -18,7 +18,13 @@
               <tr>
                 <td><%= user.name %></td>
                 <td><%= user.email %></td>
-                <td></td>
+                <td>
+                  <form method="post" action="<%= unfriend_path %>">
+                    <%= token_tag %>
+                    <input type="hidden" name="friend_id" value="<%= user.id %>"/>
+                    <button type="submit" class="btn btn-sm btn-danger">Unfriend</button>
+                  </form>
+                </td>
               </tr>
           <% end %>
           </tbody>
@@ -44,9 +50,9 @@
                 <td><%= user.name %></td>
                 <td><%= user.email %></td>
                 <td>
-                  <form method="post" action="<%= add_friend_path %>">
+                  <form method="post" action="<%= befriend_path %>">
                     <%= token_tag %>
-                    <input type="hidden" name="id" value="<%= user.id %>"/>
+                    <input type="hidden" name="friend_id" value="<%= user.id %>"/>
                     <button type="submit" class="btn btn-sm btn-primary">Befriend</button>
                   </form>
                 </td>

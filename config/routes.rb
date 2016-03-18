@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   post '/register', to: 'users#do_create_user'
 
   get '/friends', to: 'users#show_friend_list'
-  post '/friends/add', to: 'users#do_add_friend', as: :add_friend
+  post '/friends/add', to: 'users#befriend', as: :befriend
+  post '/friends/remove', to: 'users#unfriend', as: :unfriend
 
   resources :messages
 end

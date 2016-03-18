@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
-  skip_before_action :require_login
+  skip_before_action :require_login, only: [:show_login_form, :do_login, :show_register_form, :do_create_user]
+
   before_action :skip_login, only: [:show_login_form, :show_register_form]
 
   def show_login_form
@@ -40,6 +41,16 @@ class UsersController < ApplicationController
     @strangers = current_user.strangers
     @friends = current_user.friends
     render 'friend_list'
+  end
+
+  def befriend
+    Friendship.befriend(current_user.id, params[:friend_id])
+    redirect_to(friends_path)
+  end
+
+  def unfriend
+    Friendship.unfriend(current_user.id, params[:friend_id])
+    redirect_to(friends_path)
   end
 
   private
