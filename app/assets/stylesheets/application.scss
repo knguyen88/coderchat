@@ -1,1 +1,7 @@
 @import 'bootstrap';
+
+.vertical-centered {
+  td {
+    vertical-align: middle !important;
+  }
+}

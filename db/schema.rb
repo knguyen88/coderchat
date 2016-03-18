@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160318094556) do
+ActiveRecord::Schema.define(version: 20160318132949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer  "my_id"
+    t.integer  "friend_id"
+    t.boolean  "is_blocked", default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
 
   create_table "message_deliveries", force: :cascade do |t|
     t.integer  "message_id"
@@ -41,6 +49,8 @@ ActiveRecord::Schema.define(version: 20160318094556) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
+  add_foreign_key "friendships", "users", column: "friend_id"
+  add_foreign_key "friendships", "users", column: "my_id"
   add_foreign_key "message_deliveries", "messages"
   add_foreign_key "message_deliveries", "users", column: "recipient_id"
   add_foreign_key "messages", "users", column: "sender_id"

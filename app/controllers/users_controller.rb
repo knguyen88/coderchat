@@ -36,6 +36,12 @@ class UsersController < ApplicationController
     redirect_to login_path
   end
 
+  def show_friend_list
+    @strangers = current_user.strangers
+    @friends = current_user.friends
+    render 'friend_list'
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)

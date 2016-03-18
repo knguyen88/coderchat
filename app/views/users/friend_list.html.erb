@@ -1,0 +1,60 @@
+<%= render 'shared/header' %>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading"><h4>Friends</h4></div>
+      <div class="panel-body">
+        <table class="table table-striped table-hover vertical-centered">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @friends.each do |user| %>
+              <tr>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading"><h4>Users</h4></div>
+      <div class="panel-body">
+        <table class="table table-striped table-hover vertical-centered">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @strangers.each do |user| %>
+              <tr>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td>
+                  <form method="post" action="<%= add_friend_path %>">
+                    <%= token_tag %>
+                    <input type="hidden" name="id" value="<%= user.id %>"/>
+                    <button type="submit" class="btn btn-sm btn-primary">Befriend</button>
+                  </form>
+                </td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
