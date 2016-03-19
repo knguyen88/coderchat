@@ -53,6 +53,16 @@ class UsersController < ApplicationController
     redirect_to(friends_path)
   end
 
+  def block_friend
+    Friendship.block_friend(current_user.id, params[:friend_id])
+    redirect_to(friends_path)
+  end
+
+  def unblock_friend
+    Friendship.unblock_friend(current_user.id, params[:friend_id])
+    redirect_to(friends_path)
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)

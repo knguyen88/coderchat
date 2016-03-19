@@ -7,9 +7,10 @@ class User < ActiveRecord::Base
     User
         .joins('join friendships on friendships.friend_id = users.id')
         .where('friendships.my_id = ?', self.id)
+        .select('users.*, friendships.is_blocked')
   end
 
   def strangers
-    User.where.not(id: friends)
+    User.where.not(id: (friends.ids << self.id))
   end
 end

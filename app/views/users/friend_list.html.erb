@@ -10,7 +10,7 @@
           <tr>
             <th>Name</th>
             <th>Email</th>
-            <th>Action</th>
+            <th colspan="2">Action</th>
           </tr>
           </thead>
           <tbody>
@@ -24,6 +24,21 @@
                     <input type="hidden" name="friend_id" value="<%= user.id %>"/>
                     <button type="submit" class="btn btn-sm btn-danger">Unfriend</button>
                   </form>
+                </td>
+                <td>
+                  <% if user.is_blocked %>
+                      <form method="post" action="<%= unblock_friend_path %>">
+                        <%= token_tag %>
+                        <input type="hidden" name="friend_id" value="<%= user.id %>"/>
+                        <button type="submit" class="btn btn-sm btn-primary">Unblock</button>
+                      </form>
+                  <% else %>
+                      <form method="post" action="<%= block_friend_path %>">
+                        <%= token_tag %>
+                        <input type="hidden" name="friend_id" value="<%= user.id %>"/>
+                        <button type="submit" class="btn btn-sm btn-warning">Block</button>
+                      </form>
+                  <% end %>
                 </td>
               </tr>
           <% end %>

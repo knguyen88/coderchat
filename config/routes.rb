@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/friends', to: 'users#show_friend_list'
   post '/friends/add', to: 'users#befriend', as: :befriend
   post '/friends/remove', to: 'users#unfriend', as: :unfriend
+  post '/friends/block', to: 'users#block_friend', as: :block_friend
+  post '/friends/unblock', to: 'users#unblock_friend', as: :unblock_friend
 
   get '/messages/inbox', to: 'messages#show_inbox', as: :inbox
   get '/messages/outbox', to: 'messages#show_outbox', as: :outbox

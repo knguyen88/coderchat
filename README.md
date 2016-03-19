@@ -4,7 +4,7 @@
 
 Submitted by: **Kha Nguyen**
 
-Time spent: **3.5** hours
+Time spent: **10** hours
 
 URL: **https://quiet-bayou-36779.herokuapp.com**
 
@@ -28,9 +28,9 @@ The following **optional** functionality is complete:
 * [ ] User can attach an image.
 * [x] User can have multiple recipients on one message.
 * [ ] User can log in with Facebook.
-* [7] User A can "block" User B. If User A blocks User B, they will not see messages from User B. User B will not know they have been blocked.
+* [x] User A can "block" User B. If User A blocks User B, they will not see messages from User B. User B will not know they have been blocked.
 * [x] User can remove friends from their friends list.
-* [7] User can unblock friends from their block list.
+* [x] User can unblock friends from their block list.
 * [ ] Implement Infinite Scroll. Hint: you can use the [kaminari gem](https://github.com/amatsuda/kaminari) and [jquery-infinite-pages gem](https://github.com/magoosh/jquery-infinite-pages).
 * [8] User gets an email when they receive a message, with a link to view the message.
 * [8] User gets an email when a message they have sent is read with the time at which the message was read.
