@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   get '/messages/outbox', to: 'messages#show_outbox', as: :outbox
   get '/messages/new', to: 'messages#show_new_message_form', as: :send_new_message
   post '/messages/new', to: 'messages#do_send_message'
+
+  get '/messages/:id', to: 'messages#view_message', as: :view_message
 end

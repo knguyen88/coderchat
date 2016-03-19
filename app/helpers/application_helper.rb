@@ -19,4 +19,20 @@ module ApplicationHelper
     end
     nil
   end
+
+  def seen_status(message)
+    if message.seen
+      message.seen_at.strftime('Read at %I:%M %p %m/%d/%Y')
+    else
+      'Unread'
+    end
+  end
+
+  def row_style(message)
+    if message.seen
+      ''
+    else
+      'info'
+    end
+  end
 end

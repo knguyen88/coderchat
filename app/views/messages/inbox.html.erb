@@ -1,1 +1,31 @@
 <%= render 'shared/header' %>
+
+<h3>Inbox</h3>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading"><h4>Received messages</h4></div>
+      <div class="panel-body">
+        <table class="table table-hover vertical-centered">
+          <thead>
+          <tr>
+            <th>From</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @messages.each do |m| %>
+              <tr class="<%= row_style(m) %>">
+                <td><%= m.message.sender.name %></td>
+                <td><%= seen_status(m) %></td>
+                <td><a href="<%= view_message_path(m.message_id) %>">View</a></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

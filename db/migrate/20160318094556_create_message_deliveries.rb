@@ -3,7 +3,8 @@ class CreateMessageDeliveries < ActiveRecord::Migration
     create_table :message_deliveries do |t|
       t.integer :message_id
       t.integer :recipient_id
-      t.boolean :seen
+      t.boolean :seen, default: false
+      t.timestamp :seen_at, null: true
 
       t.timestamps null: false
     end

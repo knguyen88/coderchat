@@ -1,0 +1,19 @@
+<%= render 'shared/header' %>
+
+<% if @error %>
+    <div class="alert alert-danger" role="alert">
+      <span class="sr-only">Error:</span>
+      <%= @error %>
+    </div>
+<% else %>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><h4>From: <%= @message.sender.name %></h4></div>
+          <div class="panel-body">
+            <%= @message.body %>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>

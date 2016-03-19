@@ -27,9 +27,10 @@ ActiveRecord::Schema.define(version: 20160318132949) do
   create_table "message_deliveries", force: :cascade do |t|
     t.integer  "message_id"
     t.integer  "recipient_id"
-    t.boolean  "seen"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.boolean  "seen",         default: false
+    t.datetime "seen_at"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "messages", force: :cascade do |t|
