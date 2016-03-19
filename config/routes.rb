@@ -11,5 +11,8 @@ Rails.application.routes.draw do
   post '/friends/add', to: 'users#befriend', as: :befriend
   post '/friends/remove', to: 'users#unfriend', as: :unfriend
 
-  resources :messages
+  get '/messages/inbox', to: 'messages#show_inbox', as: :inbox
+  get '/messages/outbox', to: 'messages#show_outbox', as: :outbox
+  get '/messages/new', to: 'messages#show_new_message_form', as: :send_new_message
+  post '/messages/new', to: 'messages#do_send_message'
 end

@@ -60,6 +60,6 @@ class UsersController < ApplicationController
 
   def store_id_and_redirect_to_home(user)
     session[:user_id] = user.id
-    redirect_to messages_path
+    redirect_to inbox_path
   end
 end

@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def skip_login
-    redirect_to messages_path if authenticated?
+    redirect_to inbox_path if authenticated?
   end
 
   def authenticated?
