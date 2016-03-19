@@ -24,7 +24,8 @@ class Message < ActiveRecord::Base
   end
 
   def read_now(user)
-    delivery = MessageDelivery.where(message_id: self.id, recipient_id: user.id).take
-    delivery.update(seen: true, seen_at: DateTime.now)
+    MessageDelivery
+        .where(message_id: self.id, recipient_id: user.id)
+        .update_all(seen: true, seen_at: DateTime.now)
   end
 end
