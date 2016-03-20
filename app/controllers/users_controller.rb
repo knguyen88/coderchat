@@ -28,8 +28,9 @@ class UsersController < ApplicationController
     if @user.valid?
       @user.save
       store_id_and_redirect_to_home(@user)
+    else
+      render 'users/register'
     end
-    render 'users/register'
   end
 
   def do_logout
