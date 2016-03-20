@@ -1,5 +1,5 @@
 (function ($) {
-    $(document).ready(function () {
+    $(document).on('page:change', function () {
         $('[data-role="user-picker"]').each(function () {
             var $this = $(this);
             $this.tagsinput({
